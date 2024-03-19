@@ -16,5 +16,11 @@ environment {
                  echo "----------- build complted ----------"
             }
         }
+<<<<<<< HEAD
 }
 }
+=======
+}
+}
+
+>>>>>>> 907c0389ca55caa91b272e61c30c18b961a127a1
