@@ -1,6 +1,4 @@
-def registry = 'https://kosmik010.jfrog.io/'
-def imageName = 'kosmik010.jfrog.io/valaxy-d-docker-local/ttrend'
-def version   = '2.1.2'
+def registry = 'https://valaxy12345.jfrog.io/'
 pipeline {
     agent {
         node {
@@ -30,13 +28,13 @@ environment {
         steps {
             script {
                     echo '<--------------- Jar Publish Started --------------->'
-                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"jfrog-cred"
+                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"jfrog-crd"
                      def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                      def uploadSpec = """{
                           "files": [
                             {
                               "pattern": "jarstaging/(*)",
-                              "target": "valaxy32-libs-release-local/{1}",
+                              "target": "jenkins-libs-release-local/{2}",
                               "flat": "false",
                               "props" : "${properties}",
                               "exclusions": [ "*.sha1", "*.md5"]
